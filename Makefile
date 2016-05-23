@@ -126,6 +126,7 @@ APP_TAR_ON_HOST := $(ARTIFACTS)$(APP_TAR_NAME)
 
 $(APP_TAR_ON_HOST): $(TARGET_MAKE_FILE) $(TARGET_IMAGE_FILE)
 	@echo TARGET_MAKE_FILE: $(TARGET_MAKE_FILE)
+	@echo APP_TAR_ON_HOST: $(APP_TAR_ON_HOST)
 	@echo APP_BUILD_FLAGS: $(APP_BUILD_FLAGS)
 
 	docker run \
@@ -142,7 +143,7 @@ $(APP_TAR_ON_HOST): $(TARGET_MAKE_FILE) $(TARGET_IMAGE_FILE)
 dockerfile: $(TARGET_DOCKER_FILE)
 dockerimage: $(TARGET_IMAGE_FILE)
 makefile: $(TARGET_MAKE_FILE)
-git:  $(dockerfile) $(dockerimage) $(dockerfile) $(APP_TAR_ON_HOST)
+git:  $(dockerfile) $(dockerimage) $(APP_TAR_ON_HOST)
 
 
 .PHONY: all
